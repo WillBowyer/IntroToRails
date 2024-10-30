@@ -1,5 +1,12 @@
 <h1>Library Books</h1>
 
+<%= form_with url: books_path, method: :get, local: true do %>
+  <div>
+    <%= label_tag :query, "Search Books" %>
+    <%= text_field_tag :query, params[:query], placeholder: "Enter title, author, or category" %>
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>
 <table>
   <thead>
     <tr>
