@@ -7,6 +7,7 @@
       <th>Author</th>
       <th>Category</th>
       <th>Published Date</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
         <td><%= book.author.name if book.author %></td>
         <td><%= book.category.name if book.category %></td>
         <td><%= book.published_date %></td>
+        <td><%= link_to 'View Details', book_path(book) %></td>
       </tr>
     <% end %>
   </tbody>
