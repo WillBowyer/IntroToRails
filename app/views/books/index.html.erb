@@ -1,0 +1,22 @@
+<h1>Library Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Published Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author.name if book.author %></td>
+        <td><%= book.category.name if book.category %></td>
+        <td><%= book.published_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
