@@ -1,2 +1,5 @@
-class Author < ApplicationRecord
+class Category < ApplicationRecord
+  has_many :books
+  
+  validates :name, presence: true, uniqueness: true
 end
