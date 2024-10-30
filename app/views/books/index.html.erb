@@ -1,32 +1,48 @@
-<h1>Library Books</h1>
+<div class="container">
+  <h1 class="text-primary">Library Books</h1>
 
-<%= form_with url: books_path, method: :get, local: true do %>
-  <div>
-    <%= label_tag :query, "Search Books" %>
-    <%= text_field_tag :query, params[:query], placeholder: "Enter title, author, or category" %>
-    <%= submit_tag "Search" %>
+
+  <div class="row">
+    <div class="col-12">
+      <%= form_with url: books_path, method: :get, local: true, class: "form-inline my-3" do %>
+        <div class="form-group">
+          <%= label_tag :query, "Search Books", class: "mr-2" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Enter title, author, or category", class: "form-control mr-2" %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Category</th>
-      <th>Published Date</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.author.name if book.author %></td>
-        <td><%= book.category.name if book.category %></td>
-        <td><%= book.published_date %></td>
-        <td><%= link_to 'View Details', book_path(book) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @books %>
+
+  <div class="row">
+    <div class="col-12">
+      <% if @books.any? %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Published Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @books.each do |book| %>
+              <tr>
+                <td><%= book.title %></td>
+                <td><%= book.author.name if book.author %></td>
+                <td><%= book.category.name if book.category %></td>
+                <td><%= book.published_date %></td>
+                <td><%= link_to 'View Details', book_path(book), class: "btn btn-info" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @books %>
+      <% else %>
+        <p>No books found for your search.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
