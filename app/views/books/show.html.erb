@@ -8,7 +8,23 @@ Last Updated: 1-11-24
 
 <h1><%= @book.title %></h1>
 
-<p><strong>Author:</strong> <%= @book.author.name if @book.author %></p>
-<p><strong>Category:</strong> <%= @book.category.name if @book.category %></p>
+<p><strong>Author:</strong> 
+  <% if @book.author %>
+    <%= link_to @book.author.name, author_path(@book.author) %>
+  <% else %>
+    Unknown
+  <% end %>
+</p>
+
+<p><strong>Category:</strong> 
+  <% if @book.category %>
+    <%= link_to @book.category.name, category_path(@book.category) %>
+  <% else %>
+    Uncategorized
+  <% end %>
+</p>
+
 <p><strong>Description:</strong> <%= @book.description %></p>
 <p><strong>Published Date:</strong> <%= @book.published_date %></p>
+
+<%= link_to 'Back to Books', books_path, class: 'btn btn-primary' %>
