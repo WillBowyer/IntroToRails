@@ -5,9 +5,8 @@
 # Last Updated: 1-11-24
 
 Rails.application.routes.draw do
-  get "categories/index"
-  get "categories/show"
-  
+  get "authors/index"
+  get "authors/show"
   root 'static_pages#home'
   get 'about', to: 'static_pages#about'
 
@@ -21,3 +20,4 @@ Rails.application.routes.draw do
     resources :books, only: [:index, :show]
   end
 end
+

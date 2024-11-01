@@ -4,13 +4,12 @@
 # Date Created: 27-10-24
 # Last Updated: 1-11-24
 
-class CategoriesController < ApplicationController
+class AuthorsController < ApplicationController
   def index
-    @categories = Category.all
+    @authors = Author.all
   end
 
   def show
-    @category = Category.find(params[:id])
-    @books = @category.books
+    @author = Author.find(params[:id])
   end
 end

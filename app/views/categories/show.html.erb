@@ -1,2 +1,17 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<!-- 
+Course: WEBD-3008
+Instructor: Wilson Reid
+Author: Will Bowyer
+Date Created: 27-10-24
+Last Updated: 1-11-24
+-->
+
+<h1><%= @category.name %> Books</h1>
+
+<ul>
+  <% @books.each do |book| %>
+    <li><%= link_to book.title, book_path(book) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Categories', categories_path, class: 'btn btn-primary' %>

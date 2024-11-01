@@ -1,2 +1,15 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<!-- 
+Course: WEBD-3008
+Instructor: Wilson Reid
+Author: Will Bowyer
+Date Created: 27-10-24
+Last Updated: 1-11-24
+-->
+<!DOCTYPE html>
+<html lang="en">
+<h1>Categories</h1>
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= link_to category.name, category_path(category) %></li>
+  <% end %>
+</ul>

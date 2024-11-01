@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<h1><%= @author.name %></h1>
+<p><strong>Biography:</strong> <%= @author.biography %></p>
+<p><strong>Birthdate:</strong> <%= @author.birthdate %></p>
+
+<h2>Books by this Author</h2>
+<ul>
+  <% @author.books.each do |book| %>
+    <li><%= link_to book.title, book_path(book) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Authors', authors_path, class: 'btn btn-primary' %>
